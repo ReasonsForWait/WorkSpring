@@ -1,6 +1,7 @@
 package com.example.jsp1.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -47,5 +48,9 @@ public class HomeController {
     @RequestMapping(value = "/example02", method = RequestMethod.GET)
     public String example02(){
         return "example02/index";
+    }
+    @GetMapping("/example03")
+    public String example03(){
+        return "example03/index";
     }
 }

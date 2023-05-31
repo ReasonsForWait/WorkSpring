@@ -50,4 +50,42 @@ public class Example02Controller {
 
         return "example02/result";
     }
+
+    @GetMapping("/test4/{data1}")
+    public String test4(@PathVariable int[] data1){
+        for (int dt:data1) {
+            System.out.println(dt);
+        }
+
+        return "example02/result";
+    }
+
+    @GetMapping("/test5")
+    public String test5(@RequestParam("data1") int d1, @RequestParam("data2") int d2, @RequestParam("data3") int[] d3){
+        System.out.println(d1);
+        System.out.println(d2);
+        for (int dt:d3) {
+            System.out.println(dt);
+        }
+
+        return "example02/result";
+    }
+
+    @GetMapping("/test6")
+    public String test6(@RequestParam("data1") int d1,
+                        @RequestParam(value = "data2", required = false) String d2,
+                        @RequestParam(value = "data3", defaultValue = "5") int d3){
+        System.out.println(d1);
+        if(d2 != null){
+            System.out.println(d2);
+        }
+        System.out.println(d3);
+
+        return "example02/result";
+    }
+
+    @GetMapping("/test7")
+    public String test7(){
+        return "example02/result";
+    }
 }

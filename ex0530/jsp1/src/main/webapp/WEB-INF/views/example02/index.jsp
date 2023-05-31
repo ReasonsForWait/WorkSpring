@@ -24,6 +24,15 @@
     <hr>
     <h2>세번째 예제</h2>
     <a href="example02/test3/100/200/300">test3 get</a>
+    <hr>
+    <h2>네번째 예제</h2>
+    <a href="example02/test4/100,200,300">test4 get</a>
+    <hr>
+    <h2>다섯번째 예제</h2>
+    <a href="example02/test5?data1=100&data2=200&data3=300&data3=400">test5 get</a>
+    <hr>
+    <h2>여섯번째 예제</h2>
+    <a href="example02/test6?data1=100">test6 get</a>
   </form>
 </body>
 </html>
