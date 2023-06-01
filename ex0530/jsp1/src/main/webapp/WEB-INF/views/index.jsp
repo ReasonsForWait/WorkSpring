@@ -15,6 +15,7 @@
         <li><a href="example01">Spring 경로 지정</a></li>
         <li><a href="example02">요청 응답 파라미터</a></li>
         <li><a href="example03">응답 파라미터</a></li>
+        <li><a href="example04">커스텀 폼 태그</a></li>
     </ul>
 </body>
 </html>

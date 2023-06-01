@@ -20,5 +20,8 @@
     Data3 : <input type="text" name="data3" id="data3">
     <button>전송</button>
   </form>
+  <hr>
+  <h2>redirect/forward 예제2</h2>
+  <a href="example03/test8_1">redirect</a>
 </body>
 </html>
