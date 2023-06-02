@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping("/basic")
 public class BasicController {
@@ -14,5 +16,11 @@ public class BasicController {
         model.addAttribute("data2", "hello <b>spring!</b>");
 
         return "basic/text01";
+    }
+
+    @GetMapping("/date")
+    public String date(Model model){
+        model.addAttribute("LocalDateTime", LocalDateTime.now());
+        return "basic/date";
     }
 }

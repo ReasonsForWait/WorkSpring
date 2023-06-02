@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Basic</title>
+</head>
+<body>
+  <h1>LocalDateTime 예제</h1>
+  <ul>
+    <li>default = <span th:text="${LocalDateTime}"></span></li>
+    <li>yyyy-MM-dd  HH:mm:ss = <span th:text="${#temporals.format(LocalDateTime, 'yyyy-MM-dd HH:mm:ss')}"></span></li>
+  </ul>
+</body>
+</html> 
