@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <h1>속성 설정</h1>
+  <input type="text" name="mock" th:name="UserA"/>
+
+  <h1>속성 추가</h1>
+  <p>th:attrappend = <input type="text" name="txt" id="txt1" class="text" th:attrappend="class=' large'"/></p>
+  <p>th:attrprepend = <input type="text" name="txt" id="txt2" class="text" th:attrprepend="class='large '"/></p>
+  <p>th:classappend = <input type="text" name="txt" id="txt3" class="text" th:classappend="large"/></p>
+
+  <h1>checked 처리</h1>
+  <p>checked o => <input type="checkbox" name="chk" id="chk1" th:checked="true"/></p>
+  <p>checked x => <input type="checkbox" name="chk" id="chk2" th:checked="false"/></p>
+</body>
+</html>

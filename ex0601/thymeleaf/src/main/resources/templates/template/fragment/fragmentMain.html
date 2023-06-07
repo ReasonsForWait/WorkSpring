@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>템플릿 조각 예제</h1>
+  <h1>부분 포함 insert</h1>
+  <div th:insert="~{template/fragment/footer :: copy}"></div>
+
+  <h1>부분 포함 replace</h1>
+  <div th:replace="~{template/fragment/footer :: copy}"></div>
+
+  <h1>부분 포함 단순표현식</h1>
+  <div th:replace="template/fragment/footer :: copy"></div>
+
+  <h1>파라미터 사용</h1>
+  <div th:replace="template/fragment/footer :: copyParam('데이터1', '데이터2')"></div>
+</body>
+</html>
