@@ -14,23 +14,15 @@ import java.util.Map;
 // Rest 방식의 통신
 
 /*      모든 백엔드에서는 Rest API의 지원은 다음과 같은 내용이 존재한다.
-
         무엇을 보낼 것인가 : 파라미터 지원
-
         어떤 형식으로 받을 것인가 : 메서드 지원
-
         어떤 데이터를 보낼 것인가 : 리턴 데이터 지원
-
         스프링에서는 위의 지원을 아래의 어노테이션 및 객체로 지원한다
 
         - 무엇을 보낼 것인가 : @RequestBody or @RequestParam or @PathVariable or @ModelAttribute 객체
-
         - 어떤 형식으로 보낼 것인가 : @GetMapping or @PostMapping or @PutMapping or @PatchMapping or @DeleteMapping
-
         - 어떤 데이터를 보낼 것인가 : @ResponseBody & ResponseEntity
-
         - 모든 백엔드가 각기 다른 형식으로 위의 스펙들을 지원한다. 즉 매커니즘을 이해하면 다른 백엔드의 스펙에 입문하기 쉬움
-
 
 // Rest URL 스펙
 
