@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>emp list 예제1</h1>
+    <ul th:each="emp : ${list}">
+        <li>empno : <span th:text="${emp.empno}">empno</span></li>
+        <li>ename : <span th:text="${emp.ename}">ename</span></li>
+        <li>sal : <span th:text="${emp.sal}">sal</span></li>
+    </ul>
+</body>
+</html>
