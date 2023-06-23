@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatis.dao.MVCMapper">
+    <select id="getCount" resultType="int">
+        SELECT COUNT(*) FROM EMP01
+    </select>
+    <select id="getEname" resultType="String">
+        SELECT ename FROM EMP01 where empno = 7499
+    </select>
+    <select id="getItem1" resultType="Map">
+        SELECT empno, ename, sal FROM EMP01 where empno = 7499
+    </select>
+    <select id="getItem2" resultType="EmpDTO">
+        SELECT empno, ename, sal FROM EMP01 where empno = 7499
+    </select>
+    <select id="getItemListParam" resultType="EmpDTO">
+        SELECT empno, ename, sal FROM EMP01 where empno = 7499
+    </select>
+</mapper>
