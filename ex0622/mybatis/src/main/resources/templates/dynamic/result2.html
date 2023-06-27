@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>사원 정보 출력2</h1>
+    <ul th:each="item:${list}">
+      <li>
+        사원 번호 : <span th:text="${item.empno}">0000</span>
+        사원 이름 : <span th:text="${item.ename}">none</span>
+        사원 급여 : <span th:text="${item.sal}">0</span>
+      </li>
+    </ul>
+</body>
+</html>

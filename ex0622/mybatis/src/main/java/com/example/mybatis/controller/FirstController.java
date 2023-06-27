@@ -5,9 +5,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/mvc")
 public class FirstController {
 
     private final MVCService service;
@@ -30,9 +32,15 @@ public class FirstController {
         return "mvc/result3";
     }
 
-    @GetMapping("get-item2")
-    public String getItem2(Model model){
-        service.getItem2(model);
+    @GetMapping("get-list1")
+    public String getList1(Model model){
+        service.getItemList1(model);
         return "mvc/result4";
+    }
+
+    @GetMapping("get-list2")
+    public String getList2(Model model){
+        service.getItemList2(model);
+        return "mvc/result5";
     }
 }

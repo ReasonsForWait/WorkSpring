@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/modify/result2" th:object="${dto}" method="get">
+        deptno : <input type="text" th:field="*{deptno}" id="deptno"><br>
+        dname : <input type="text" th:field="*{dname}" id="dname"><br>
+        loc : <input type="text" th:field="*{loc}" id="loc"><br>
+        <button>전송</button>
+    </form>
+</body>
+</html>

@@ -6,9 +6,9 @@ import org.apache.ibatis.type.Alias;
 
 @Getter
 @Setter
-@Alias("EmpDTO")
-public class EmpDTO {
-    private Integer empno;
-    private String ename;
-    private Double sal;
+@Alias("EmpDTO2")
+public class EmpDTO2 {
+//    private int deptno;
+    private Integer deptno;
+    private String job;
 }

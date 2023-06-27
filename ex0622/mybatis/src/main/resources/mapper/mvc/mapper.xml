@@ -9,13 +9,80 @@
     <select id="getEname" resultType="String">
         SELECT ename FROM EMP01 where empno = 7499
     </select>
-    <select id="getItem1" resultType="Map">
+    <select id="getItem1" resultType="map">
         SELECT empno, ename, sal FROM EMP01 where empno = 7499
     </select>
-    <select id="getItem2" resultType="EmpDTO">
-        SELECT empno, ename, sal FROM EMP01 where empno = 7499
+    <select id="getItemList1" resultType="map">
+        SELECT empno, ename, sal FROM EMP01
     </select>
-    <select id="getItemListParam" resultType="EmpDTO">
-        SELECT empno, ename, sal FROM EMP01 where empno = 7499
+<!--    <select id="getItemList2" resultType="com.example.mybatis.dto.EmpDTO">-->
+    <select id="getItemList2" resultType="EmpDTO">
+        SELECT empno, ename, sal FROM EMP01
     </select>
+    <select id="getItemListWithParam1" parameterType="int" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP01 where empno = #{empno}
+    </select>
+    <select id="getItemListWithParam2" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP01
+        WHERE deptno = #{deptno}
+        AND job = #{job}
+    </select>
+    <select id="getItemListWithParam3" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP01
+        WHERE deptno = #{deptno}
+        AND job = #{job}
+    </select>
+    <select id="getItemListWithParam4" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP01
+        <where>
+        <if test="deptno != 0 and deptno != null">
+            AND deptno = #{deptno}
+        </if>
+        <if test="job != null and job != ''">
+            AND job = #{job}
+        </if>
+        </where>
+    </select>
+    <select id="getItemListWithParam5" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP01
+        <where>
+            <choose>
+                <when test="deptno != 0 and deptno != null">
+                    AND deptno = #{deptno}
+                </when>
+                <when test="job != null and job != ''">
+                    AND job = #{job}
+                </when>
+                <otherwise>
+                    AND 1 = 1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+    <select id="getItemListWithParam6" resultType="EmpDTO">
+        SELECT empno, ename, sal from EMP01
+        WHERE job in
+        <foreach item="item" index="index" collection="jobs" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+    <insert id="setDept1">
+        INSERT INTO DEPT01(deptno, dname, loc) VALUES(#{deptno}, #{dname}, #{loc})
+    </insert>
+    <update id="modifyDept1">
+        UPDATE DEPT01
+        <set>
+            <if test="dname != null and dname != ''">dname = #{dname},</if>
+            <if test="loc != null and loc != ''">loc = #{loc}</if>
+        </set>
+        WHERE deptno = #{deptno}
+    </update>
+
+    <select id="getDept1">
+        SELECT deptno, dname, loc FROM dept01 WHERE deptno = #{deptno}
+    </select>
+
+    <delete id="deleteDept1">
+        DELETE FROM DEPT01 WHERE deptno = #{deptno}
+    </delete>
 </mapper>
