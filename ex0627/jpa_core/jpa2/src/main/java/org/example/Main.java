@@ -7,36 +7,7 @@ import javax.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {
-        // 엔티티 매니저 팩토리 생성
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpaconfig");
-
-        // 엔티티 매니저 생서
-        EntityManager em = emf.createEntityManager();
-
-        // 트랜잭션 생성
-        EntityTransaction tx = em.getTransaction();
-
-        try {
-            // 트랜잭션 시작
-            tx.begin();
-
-            // logic1(em);
-            // logic2(em);
-            logic3(em);
-            // 트랜잭션 커밋
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-
-            // 트랜잭션 롤백
-            tx.rollback();
-        } finally {
-            // 엔티티 매니저 종료
-            em.close();
-        }
-
-        // 엔티티 매니저 팩토리 종료
-        emf.close();
+         
     }
 
 
