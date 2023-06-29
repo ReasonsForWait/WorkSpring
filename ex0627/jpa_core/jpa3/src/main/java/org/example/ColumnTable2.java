@@ -8,13 +8,14 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class ColumnTable2 {
+
     @Id
     @Column
     private String id;
     @Column
     private String column1;
     private String column2;
-    @Column(name = "column3")
+    @Column(name="column3")
     private String userColumn3;
     private int intColumn1;
     private Integer intColumn2;
