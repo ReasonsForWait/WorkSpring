@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+</head>
+<body>
+    <select name="pg" id="pg">
+      <option value="tosspay">TossPay</option>
+      <option value="kakaopay">KakaoPay</option>
+    </select>
+    <h3>입력한 정보</h3>
+    <p>상품명 : <span th:text="${product}" id="product">고른 상품 없음</span></p>
+    <p>구매자명 : <span th:text="${name}" id="name">홍길동</span></p>
+    <p>가격 : <span th:text="${price}" id="price">0</span></p>
+    <button onclick="requestPay()">결제하기</button>
+    <script>
+        /** 결제 **/
+    // 결제 금액, 구매자의 이름, 이메일
+    const priceAmount = document.querySelector("#price").textContent;
+    const buyerSelectProduct = document.querySelector("#product").textContent;
+    const buyerMemberName = document.querySelector("#name").textContent;
+    // const form = document.getElementById("payment");
+
+    console.log(priceAmount);
+    console.log(buyerMemberName);
+    console.log(buyerSelectProduct);
+    console.log(document.getElementById("pg").value);
+    const IMP = window.IMP;
+    IMP.init('imp28240265');
+
+    function requestPay() {
+        // IMP.request_pay(param, callback) 결제창 호출
+        IMP.request_pay({ // param
+            pg: document.getElementById("pg").value,
+            pay_method: "card",
+            merchant_uid: 'cart_' + new Date().getTime(),
+            name: buyerSelectProduct,
+            amount: priceAmount,
+            buyer_name: buyerMemberName
+
+        }, function (rsp) { // callback
+
+            /** 결제 검증 **/
+            $.ajax({
+                type: 'POST',
+                url: '/verifyIamport/'+rsp.imp_uid,
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                }
+            }).done(function(result){
+
+                // rsp.paid_amount와 result.response.amount(서버 검증) 비교 후 로직 실행
+                if(rsp.paid_amount === result.response.amount){
+                    alert("결제가 완료되었습니다.");
+                    $.ajax({
+                        type:'POST',
+                        url:'/lecture/payment',
+                        beforeSend: function(xhr){
+                            xhr.setRequestHeader(header, token);
+                        }
+                    }).done(function() {
+                        window.location.reload();
+                    }).fail(function(error){
+                            alert(JSON.stringify(error));
+                    })
+                } else{
+                    alert("결제에 실패했습니다."+"에러코드 : "+rsp.error_code+"에러 메시지 : "+rsp.error_message);
+
+                }
+            })
+        });
+    };
+    </script>
+</body>
+</html>
