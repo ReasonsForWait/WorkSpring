@@ -6,10 +6,11 @@ import javax.persistence.*;
 @Table(
         uniqueConstraints = {
                 @UniqueConstraint( columnNames = {"column1"}),
-                @UniqueConstraint( name = "UniqueColumn1Column2", columnNames = {"column1", "column2"})
+                @UniqueConstraint(name="UniqueColumn1Column2", columnNames = {"column1","column2"})
         }
 )
 public class ColumnTable1 {
+
     @Id
     @Column
     private String id;
