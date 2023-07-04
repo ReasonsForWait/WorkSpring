@@ -24,8 +24,18 @@
 <!--        <class>org.example.repository4.Seller1</class>-->
 <!--        <class>org.example.repository4.Member1</class>-->
 <!--    @IdClass 예제   -->
-        <class>org.example.repository5.Account1</class>
-        <class>org.example.repository5.AccountId1</class>
+<!--        <class>org.example.repository5.Account1</class>-->
+<!--    @EmbeddedId 예제 -->
+<!--        <class>org.example.repository6.Account2</class>-->
+<!--    복합키 expert 예제    -->
+        <class>org.example.repository7.Parent1</class>
+        <class>org.example.repository7.Child1</class>
+        <class>org.example.repository7.GrandChild1</class>
+<!--    비식별 관계 예제    -->
+        <class>org.example.repository8.Parent2</class>
+        <class>org.example.repository8.Child2</class>
+        <class>org.example.repository8.GrandChild2</class>
+
         <properties>
 
             <!-- 필수 속성 -->

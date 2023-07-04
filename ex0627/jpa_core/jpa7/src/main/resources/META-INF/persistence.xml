@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="jpaconfig">
+<!--    프록시 예제    -->
+<!--        <class>org.example.repository1.Member1</class>-->
+<!--    null 옵션    -->
+        <class>org.example.repository2.Member2</class>
+        <class>org.example.repository2.Team2</class>
+
+        <properties>
+
+            <!-- 필수 속성 -->
+            <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="1234"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/jpa7"/>
+            <!-- 방언 : DB에 맞게 SQL을 작성해줌 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB106Dialect" />
+
+            <!-- 옵션 -->
+            <!-- hibernate 가 DB에 날리는 모든 쿼리(DDL, DML)를 보여줄 경우 사용하는 옵션 -->
+            <property name="hibernate.show_sql" value="true" />
+            <!-- hibernate 가 날리는 쿼리를 예쁘게 보여줄 경우 사용하는 옵션 -->
+            <property name="hibernate.format_sql" value="true" />
+            <!-- hibernate 에서 제공하는 추가적인 주석을 제공해줄 경우 사용하는 옵션 -->
+            <property name="hibernate.use_sql_comments" value="true" />
+            <!-- hibernate 에서 sequence 타입의 자동 생성 키를 사용할 경우 사용하는 옵션 -->
+            <property name="hibernate.id.new_generator_mappings" value="false" />
+
+            <!-- Java 애플리케이션 단에서 엔티티 객체의 변경 사항이 DB 단에서의 테이블 스키마에 자동으로 반영시킬 때 사용하는 옵션 -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+        </properties>
+    </persistence-unit>
+
+</persistence>
+
+
