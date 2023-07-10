@@ -26,6 +26,11 @@ public class MemberRepositoryV1 {
         return em.createQuery("SELECT m FROM Member m", Member.class).getResultList();
     }
 
+    // 단건 조회
+    public Member find(Long id){
+        return em.find(Member.class, id);
+    }
+
     // 삭제
     public Long delete(Member member){
         em.remove(member);

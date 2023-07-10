@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--기존값을 불러와서 수정하는데 id값과 username을 불러와서 수정하는 로직을 작성-->
+    <h1>memberModify page</h1>
+    <h2>수정할 이름과 id를 입력해 주세요</h2>
+    <form action="result" th:action="@{${action}}" th:object="${dto}" method="post">
+        id : <input type="text" id="userid" th:field="*{userid}">
+        이름 : <input type="text" id="username" th:field="*{username}">
+        나이 : <input type="text" id="age" th:field="*{age}">
+        <button>전송</button>
+    </form>
+</body>
+</html>

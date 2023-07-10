@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>member1 List page</h1>
+    <p>데이터 개수 : <span th:text="${cnt}">0</span></p>
+    <ul th:each="user, userStat : ${list}">
+        <li>아이디 : <span th:text="${user.userid}">id</span>
+            이름 : <span th:text="${user.username}">name</span>
+        </li>
+    </ul>
+</body>
+</html>

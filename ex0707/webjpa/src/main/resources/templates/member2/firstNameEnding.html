@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>firstNameEnding page</h1>
+  <h3>마지막에 들어갈 이름 글자를 입력해주세요</h3>
+  <form action="result" th:action="@{${action}}" th:object="${dto}" method="post">
+      이름 : <input type="text" id="username" th:field="*{username}" /><br/>
+      <button>입력</button>
+  </form>
+</body>
+</html>
