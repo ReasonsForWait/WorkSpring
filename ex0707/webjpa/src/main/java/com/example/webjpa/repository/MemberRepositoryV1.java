@@ -3,7 +3,6 @@ package com.example.webjpa.repository;
 import com.example.webjpa.domain.Member;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,18 +16,22 @@ public class MemberRepositoryV1 {
 
     // 생성 쿼리
     public Long save(Member member){
-        em.persist(member);
+        if(member.getId() == null){
+            em.persist(member);
+        }else {
+            em.merge(member);
+        }
         return member.getId();
-    }
-
-    //전체 조회
-    public List<Member> findAll(){
-        return em.createQuery("SELECT m FROM Member m", Member.class).getResultList();
     }
 
     // 단건 조회
     public Member find(Long id){
         return em.find(Member.class, id);
+    }
+
+    // 전체 조회
+    public List<Member> findAll(){
+        return em.createQuery("select m from Member m", Member.class).getResultList();
     }
 
     // 삭제
@@ -45,6 +48,8 @@ public class MemberRepositoryV1 {
 
     // 전체 로우 개수
     public long count(){
-        return em.createQuery("SELECT count(m) FROM Member m", Long.class).getSingleResult();
+        return em.createQuery(
+                "select count(m) from Member m", Long.class).getSingleResult();
     }
+
 }

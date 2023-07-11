@@ -20,7 +20,7 @@ public class MemberServiceV1 {
     // 멤버 찾기
     public MemberOutDTO findMember(Long id){
         MemberOutDTO dto = new MemberOutDTO();
-//        dto.setMember(memberRepositoryV1.findById(id).get()); Optional을 써서 get이 붙어야한다 아래줄과 같은 역할
+//        dto.setMember(memberRepositoryV1.findById(id).get());
         dto.setMember(memberRepositoryV1.find(id));
         return dto;
     }
@@ -39,19 +39,21 @@ public class MemberServiceV1 {
         return memberRepositoryV1.count();
     }
 
+    // 멤버 추가
     @Transactional
     public void saveMember(String username){
         Member member = new Member(username);
         long id = memberRepositoryV1.save(member);
-        System.out.println("------- 저장된 값 : " + id);
+        System.out.println("--------------- 저장된 값 : "+id);
     }
 
-    // 멤버 수정
+    // 맴버 수정
+    @Transactional
     public void putMember(MemberInDTO dto){
         Member member = memberRepositoryV1.find(dto.getUserid().longValue());
         member.setUsername(dto.getUsername());
         memberRepositoryV1.save(member);
-        System.out.println("-------- 수정된 값 : " + member.getId() + ", " + member.getUsername());
+        System.out.println("------------------ 수정한 값 : "+member.getId()+", "+member.getUsername());
     }
 
     // 멤버 삭제
@@ -59,6 +61,8 @@ public class MemberServiceV1 {
     public void deleteMember(MemberInDTO dto){
         Member member = memberRepositoryV1.find(dto.getUserid().longValue());
         memberRepositoryV1.delete(member);
-        System.out.println("-------- 삭제된 값 : " + member.getId());
+        System.out.println("------------------ 지워진 값 : "+member.getId());
     }
+
+
 }

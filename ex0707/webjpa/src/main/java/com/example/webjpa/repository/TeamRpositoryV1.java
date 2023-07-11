@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class TeamRepositoryV1 {
+public class TeamRpositoryV1 {
 
     private final EntityManager em;
 
@@ -27,7 +27,7 @@ public class TeamRepositoryV1 {
 
     // 리스트 검색
     public List<Team> findAll(){
-        return em.createQuery("SELECT t RFOM Team t", Team.class).getResultList();
+        return em.createQuery("select t from Team t", Team.class).getResultList();
     }
 
     // 로우 검색
@@ -39,6 +39,8 @@ public class TeamRepositoryV1 {
 
     // 카운트
     public long count(){
-        return em.createQuery("SELECT count(t) FROM Team t", Long.class).getSingleResult();
+        return em.createQuery("select count(t) from Team t", Long.class).getSingleResult();
     }
+
+
 }

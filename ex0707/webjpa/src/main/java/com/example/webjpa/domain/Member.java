@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@NamedQuery(
+        name = "Member.findByUsername",
+        query = "select m from Member m where m.username = :username"
+)
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"})
@@ -20,14 +24,10 @@ public class Member {
     @JoinColumn(name = "team_id")
     private Team team;
 
-    public Member(String username) {
-        this(username, 0);
-    }
-
+    public Member(String username) {this(username, 0);}
     public Member(String username, Integer age) {
         this(username, age, null);
     }
-
     public Member(String username, Integer age, Team team) {
         this.username = username;
         this.age = age;
@@ -35,8 +35,7 @@ public class Member {
             changeTeam(team);
         }
     }
-
-    private void changeTeam(Team team) {
+    public void changeTeam(Team team){
         this.team = team;
         team.getMembers().add(this);
     }

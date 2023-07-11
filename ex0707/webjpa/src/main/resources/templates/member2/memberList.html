@@ -5,12 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>member1 List page</h1>
-    <p>데이터 개수 : <span th:text="${cnt}">0</span></p>
+    <h1>member2List 페이지 입니다.</h1>
+    <h3>총 갯수 : <span th:text="${cnt}">0</span></h3>
     <ul th:each="user, userStat : ${list}">
-        <li>아이디 : <span th:text="${user.userid}">id</span>
-            이름 : <span th:text="${user.username}">name</span>
-        </li>
+      <li>아이디 : <span th:text="${user.userid}">id</span>
+        이름 : <span th:text="${user.username}">name</span>
+          나이 : <span th:text="${user.age}">age</span>
+      </li>
     </ul>
 </body>
 </html>
