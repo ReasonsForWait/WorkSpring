@@ -25,6 +25,7 @@ public class MemberServiceV2 {
     private final MemberRepositoryV2 memberRepositoryV2;
 
     // 멤버 찾기
+    @Transactional(readOnly = true)
     public MemberOutDTO findMember(Long id){
         MemberOutDTO dto = new MemberOutDTO();
         dto.setMember(memberRepositoryV2.findById(id).get());
