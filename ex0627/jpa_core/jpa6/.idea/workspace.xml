@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb49c6c-9039-4b5d-973b-6c2c0532d4ab" name="Changes" comment="" />
+    <list default="true" id="efb49c6c-9039-4b5d-973b-6c2c0532d4ab" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../ex0707/webjpa/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ex0707/webjpa/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ex0717/dsl/src/main/java/com/example/dsl/domain/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ex0717/dsl/src/main/java/com/example/dsl/domain/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../previous-question/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../previous-question/.idea/gradle.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +31,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/lee/workspring/paymentTest/build.gradle"
+    "last_opened_file_path": "C:/lee/workspring/ex0627/jpa_core/jpa4/build.gradle"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
