@@ -15,15 +15,15 @@ public class MemberOutDTO implements OutDTO {
     private String username;
     private Integer age;
 
-    public MemberOutDTO(Member member) {
-        userid = member.getId();
-        username = member.getUsername();
-        age = member.getAge();
-    }
+//    public MemberOutDTO(Member member) {
+//        userid = member.getId();
+//        username = member.getUsername();
+//        age = member.getAge();
+//    }
 
-    public void setMember(Member member){
-        userid = member.getId();
-        username = member.getUsername();
-        age = member.getAge();
-    }
+//    public void setMember(Member member){
+//        userid = member.getId();
+//        username = member.getUsername();
+//        age = member.getAge();
+//    }
 }

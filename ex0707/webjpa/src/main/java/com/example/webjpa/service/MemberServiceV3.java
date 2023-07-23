@@ -33,17 +33,17 @@ public class MemberServiceV3 {
 
     public List<MemberOutDTOWithTeam> getMemberWithTeamV1(){
         List<MemberOutDTOWithTeam> list = new ArrayList<>();
-        for (Member mem : memberRepositoryV3.findAll()){
-            list.add(new MemberOutDTOWithTeam(mem));
-        }
+//        for (Member mem : memberRepositoryV3.findAll()){
+//            list.add(new MemberOutDTOWithTeam(mem));
+//        }
         return list;
     }
 
     public List<MemberOutDTO> getMemberCustom(){
         List<MemberOutDTO> list = new ArrayList<>();
-        for(Member mem : memberRepositoryV3.findMemberCustom()){
-            list.add(new MemberOutDTO(mem));
-        }
+//        for(Member mem : memberRepositoryV3.findMemberCustom()){
+//            list.add(new MemberOutDTO(mem));
+//        }
         return list;
     }
 }

@@ -42,10 +42,10 @@ public class MemberControllerV1 {
 
     // 멤버 입력
     @PostMapping("input")
-    public String setMember(MemberInDTO dto){
-        memberServiceV1.saveMember(dto.getUsername());
-        return "redirect:/";
-    }
+//    public String setMember(MemberInDTO dto){
+//        memberServiceV1.saveMember(dto.getUsername());
+//        return "redirect:/";
+//    }
 
     // 맴버 수정 페이지
     @GetMapping("modify")

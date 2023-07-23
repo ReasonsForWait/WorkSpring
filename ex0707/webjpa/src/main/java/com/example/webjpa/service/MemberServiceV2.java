@@ -25,21 +25,21 @@ public class MemberServiceV2 {
     private final MemberRepositoryV2 memberRepositoryV2;
 
     // 멤버 찾기
-    @Transactional(readOnly = true)
-    public MemberOutDTO findMember(Long id){
-        MemberOutDTO dto = new MemberOutDTO();
-        dto.setMember(memberRepositoryV2.findById(id).get());
-        return dto;
-    }
+//    @Transactional(readOnly = true)
+//    public MemberOutDTO findMember(Long id){
+//        MemberOutDTO dto = new MemberOutDTO();
+//        dto.setMember(memberRepositoryV2.findById(id).get());
+//        return dto;
+//    }
 
     // 리스트 찾기
-    public List<MemberOutDTO> findMemberAll(){
-        List<MemberOutDTO> list = new ArrayList<>();
-        for(Member mem : memberRepositoryV2.findAll()){
-            list.add(new MemberOutDTO((mem)));
-        }
-        return list;
-    }
+//    public List<MemberOutDTO> findMemberAll(){
+//        List<MemberOutDTO> list = new ArrayList<>();
+//        for(Member mem : memberRepositoryV2.findAll()){
+//            list.add(new MemberOutDTO((mem)));
+//        }
+//        return list;
+//    }
 
     // 전체 리스트 개수 구하기
     public long findCount(){
@@ -57,44 +57,44 @@ public class MemberServiceV2 {
     // 맴버 수정
     @Transactional
     public void putMember(MemberInDTO dto){
-        Member member = memberRepositoryV2.findById(dto.getUserid().longValue()).get();
-        member.setUsername(dto.getUsername());
-        member.setAge(dto.getAge());
-        memberRepositoryV2.save(member);
-        System.out.println("------------------ 수정한 값 : "+member.getId()+", "+member.getUsername());
+//        Member member = memberRepositoryV2.findById(dto.getUserid().longValue()).get();
+//        member.setUsername(dto.getUsername());
+//        member.setAge(dto.getAge());
+//        memberRepositoryV2.save(member);
+//        System.out.println("------------------ 수정한 값 : "+member.getId()+", "+member.getUsername());
     }
 
     // 멤버 삭제
     @Transactional
     public void deleteMember(MemberInDTO dto){
-        Member member = memberRepositoryV2.findById(dto.getUserid().longValue()).get();
-        memberRepositoryV2.delete(member);
-        System.out.println("------------------ 지워진 값 : "+member.getId());
+//        Member member = memberRepositoryV2.findById(dto.getUserid().longValue()).get();
+//        memberRepositoryV2.delete(member);
+//        System.out.println("------------------ 지워진 값 : "+member.getId());
     }
 
-    public List<MemberOutDTO> findMemberByFirstnameEnding(MemberInDTO dto){
-        List<MemberOutDTO> list = new ArrayList<>();
-        for(Member mem : memberRepositoryV2.findByUsernameEndingWith(dto.getUsername())){
-            list.add(new MemberOutDTO((mem)));
-        }
-        return list;
-    }
+//    public List<MemberOutDTO> findMemberByFirstnameEnding(MemberInDTO dto){
+//        List<MemberOutDTO> list = new ArrayList<>();
+//        for(Member mem : memberRepositoryV2.findByUsernameEndingWith(dto.getUsername())){
+//            list.add(new MemberOutDTO((mem)));
+//        }
+//        return list;
+//    }
 
-    public List<MemberOutDTO> findNamedQuery1(String username){
-        List<MemberOutDTO> list = new ArrayList<>();
-        for(Member mem : memberRepositoryV2.findByUsername(username)){
-            list.add(new MemberOutDTO(mem));
-        }
-        return list;
-    }
+//    public List<MemberOutDTO> findNamedQuery1(String username){
+//        List<MemberOutDTO> list = new ArrayList<>();
+//        for(Member mem : memberRepositoryV2.findByUsername(username)){
+//            list.add(new MemberOutDTO(mem));
+//        }
+//        return list;
+//    }
 
-    public List<MemberOutDTO> findRepositoryQuery1(String username, Integer age){
-        List<MemberOutDTO> list = new ArrayList<>();
-        for(Member mem : memberRepositoryV2.findUser(username, age)){
-            list.add(new MemberOutDTO(mem));
-        }
-        return list;
-    }
+//    public List<MemberOutDTO> findRepositoryQuery1(String username, Integer age){
+//        List<MemberOutDTO> list = new ArrayList<>();
+//        for(Member mem : memberRepositoryV2.findUser(username, age)){
+//            list.add(new MemberOutDTO(mem));
+//        }
+//        return list;
+//    }
 
     public List<MemberOutDTO> findPageingQuery1(){
         List<MemberOutDTO> list = new ArrayList<>();
@@ -115,9 +115,9 @@ public class MemberServiceV2 {
         System.out.println("첫번째 페이지 여부 : "+page1.isFirst());
         System.out.println("다음 페이지 존재 여부 : "+page1.hasNext());
 
-        for(Member mem : page1.getContent()){
-            list.add(new MemberOutDTO(mem));
-        }
+//        for(Member mem : page1.getContent()){
+//            list.add(new MemberOutDTO(mem));
+//        }
         return list;
     }
 
@@ -135,9 +135,9 @@ public class MemberServiceV2 {
                 memberRepositoryV2.findByAgeBetweenCustom4(20, 40,
                         Sort.by(Sort.Order.desc("age"), Sort.Order.asc("id")));
 
-        for(Member mem : page1.getContent()){
-            list.add(new MemberOutDTO(mem));
-        }
+//        for(Member mem : page1.getContent()){
+//            list.add(new MemberOutDTO(mem));
+//        }
 
         MemberOutDTOPage page = new MemberOutDTOPage();
         page.setContent(list);
@@ -158,9 +158,9 @@ public class MemberServiceV2 {
         Slice<Member> page1 =
                 memberRepositoryV2.findByAgeBetweenCustom2(20, 40, pageReq);
 
-        for(Member mem : page1.getContent()){
-            list.add(new MemberOutDTO(mem));
-        }
+//        for(Member mem : page1.getContent()){
+//            list.add(new MemberOutDTO(mem));
+//        }
 
         MemberOutDTOPage page = new MemberOutDTOPage();
         page.setContent(list);

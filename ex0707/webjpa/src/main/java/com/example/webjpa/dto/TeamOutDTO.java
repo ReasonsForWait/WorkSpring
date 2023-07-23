@@ -16,8 +16,8 @@ public class TeamOutDTO {
         this.name = name;
     }
 
-    public TeamOutDTO(Team team){
-        this.id = team.getId();
-        this.name = team.getName();
-    }
+//    public TeamOutDTO(Team team){
+//        this.id = team.getId();
+//        this.name = team.getTeamName();
+//    }
 }

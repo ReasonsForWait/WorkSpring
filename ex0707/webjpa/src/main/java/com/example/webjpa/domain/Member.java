@@ -3,6 +3,8 @@ package com.example.webjpa.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.UUID;
+
 @Entity
 @NamedQuery(
         name = "Member.findByUsername",
@@ -16,12 +18,14 @@ public class Member extends BaseEntity{
     @Id
     @GeneratedValue
     @Column(name = "member_id")
-    private Long id;
+    private UUID id;
+
     private String username;
+
     private Integer age;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id")
+    @ManyToOne
+    @JoinColumn(name="team_id", insertable=false, updatable=false)
     private Team team;
 
     public Member(String username) {this(username, 0);}

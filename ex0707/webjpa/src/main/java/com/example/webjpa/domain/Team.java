@@ -5,25 +5,28 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "name"})
-public class Team {
+public class Team extends BaseEntity{
 
     @Id
     @GeneratedValue
     @Column(name = "team_id")
-    private Long id;
-    private String name;
+    private UUID id;
+
+    @Column
+    private String teamname;
 
     @OneToMany(mappedBy = "team")
-    List<Member> members = new ArrayList<>();
+    private List<Member> members = new ArrayList<>();
 
-    public Team(String name) {
-        this.name = name;
+    public Team(String teamname) {
+        this.teamname = teamname;
     }
 
     @PostLoad

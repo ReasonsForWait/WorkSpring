@@ -20,18 +20,18 @@ public class MemberOutDTOWithTeam {
         this.age = age;
     }
 
-    public MemberOutDTOWithTeam(Member member) {
-        userid = member.getId();
-        username = member.getUsername();
-        age = member.getAge();
-        team = new TeamOutDTO(member.getTeam());
-    }
+//    public MemberOutDTOWithTeam(Member member) {
+//        userid = member.getId();
+//        username = member.getUsername();
+//        age = member.getAge();
+//        team = new TeamOutDTO(member.getTeam());
+//    }
 
-    public void setMember(Member member){
-        userid = member.getId();
-        username = member.getUsername();
-        age = member.getAge();
-        team = new TeamOutDTO(member.getTeam());
-    }
+//    public void setMember(Member member){
+//        userid = member.getId();
+//        username = member.getUsername();
+//        age = member.getAge();
+//        team = new TeamOutDTO(member.getTeam());
+//    }
 
 }

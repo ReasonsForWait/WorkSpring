@@ -21,16 +21,16 @@ public class MemberServiceV1 {
     public MemberOutDTO findMember(Long id){
         MemberOutDTO dto = new MemberOutDTO();
 //        dto.setMember(memberRepositoryV1.findById(id).get());
-        dto.setMember(memberRepositoryV1.find(id));
+//        dto.setMember(memberRepositoryV1.find(id));
         return dto;
     }
 
     // 리스트 찾기
     public List<MemberOutDTO> findMemberAll(){
         List<MemberOutDTO> list = new ArrayList<>();
-        for(Member mem : memberRepositoryV1.findAll()){
-            list.add(new MemberOutDTO((mem)));
-        }
+//        for(Member mem : memberRepositoryV1.findAll()){
+//            list.add(new MemberOutDTO((mem)));
+//        }
         return list;
     }
 
@@ -40,28 +40,28 @@ public class MemberServiceV1 {
     }
 
     // 멤버 추가
-    @Transactional
-    public void saveMember(String username){
-        Member member = new Member(username);
-        long id = memberRepositoryV1.save(member);
-        System.out.println("--------------- 저장된 값 : "+id);
-    }
+//    @Transactional
+//    public void saveMember(String username){
+//        Member member = new Member(username);
+//        long id = memberRepositoryV1.save(member);
+//        System.out.println("--------------- 저장된 값 : "+id);
+//    }
 
     // 맴버 수정
     @Transactional
     public void putMember(MemberInDTO dto){
-        Member member = memberRepositoryV1.find(dto.getUserid().longValue());
-        member.setUsername(dto.getUsername());
-        memberRepositoryV1.save(member);
-        System.out.println("------------------ 수정한 값 : "+member.getId()+", "+member.getUsername());
+//        Member member = memberRepositoryV1.find(dto.getUserid().longValue());
+//        member.setUsername(dto.getUsername());
+//        memberRepositoryV1.save(member);
+//        System.out.println("------------------ 수정한 값 : "+member.getId()+", "+member.getUsername());
     }
 
     // 멤버 삭제
     @Transactional
     public void deleteMember(MemberInDTO dto){
-        Member member = memberRepositoryV1.find(dto.getUserid().longValue());
-        memberRepositoryV1.delete(member);
-        System.out.println("------------------ 지워진 값 : "+member.getId());
+//        Member member = memberRepositoryV1.find(dto.getUserid().longValue());
+//        memberRepositoryV1.delete(member);
+//        System.out.println("------------------ 지워진 값 : "+member.getId());
     }
 
 

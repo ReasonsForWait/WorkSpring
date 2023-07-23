@@ -24,19 +24,19 @@ public class MemberControllerV2 {
     private final MemberServiceV2 memberServiceV2;
 
     // id를 통한 단건 호출
-    @GetMapping("detail/{id}")
-    public String getMemberDetail(@PathVariable("id")long id, Model model){
-        model.addAttribute("dto", memberServiceV2.findMember(id));
-        return "member2/memberDetail";
-    }
+//    @GetMapping("detail/{id}")
+//    public String getMemberDetail(@PathVariable("id")long id, Model model){
+//        model.addAttribute("dto", memberServiceV2.findMember(id));
+//        return "member2/memberDetail";
+//    }
 
     // 리스트 호출
-    @GetMapping("list")
-    public String getMemberList(Model model){
-        model.addAttribute("list", memberServiceV2.findMemberAll());
-        model.addAttribute("cnt",memberServiceV2.findCount());
-        return "member2/memberList";
-    }
+//    @GetMapping("list")
+//    public String getMemberList(Model model){
+//        model.addAttribute("list", memberServiceV2.findMemberAll());
+//        model.addAttribute("cnt",memberServiceV2.findCount());
+//        return "member2/memberList";
+//    }
 
     // 멤버 입력 페이지 이동
     @GetMapping("input")
@@ -91,20 +91,20 @@ public class MemberControllerV2 {
     }
 
     @PostMapping("firstNameEnding")
-    public String getFirstNameEndingPageResult(MemberInDTO dto, Model model){
-        List<MemberOutDTO> list = memberServiceV2.findMemberByFirstnameEnding(dto);
-        model.addAttribute("list",list);
-        model.addAttribute("cnt", list.size());
-        return "member2/memberList";
-    }
+//    public String getFirstNameEndingPageResult(MemberInDTO dto, Model model){
+//        List<MemberOutDTO> list = memberServiceV2.findMemberByFirstnameEnding(dto);
+//        model.addAttribute("list",list);
+//        model.addAttribute("cnt", list.size());
+//        return "member2/memberList";
+//    }
 
-    @GetMapping("NamedQuery1")
-    public String getMemberNamedQuery(@RequestParam("username") String username, Model model){
-        List<MemberOutDTO> list = memberServiceV2.findNamedQuery1(username);
-        model.addAttribute("list",list);
-        model.addAttribute("cnt", list.size());
-        return "member2/memberList";
-    }
+//    @GetMapping("NamedQuery1")
+//    public String getMemberNamedQuery(@RequestParam("username") String username, Model model){
+//        List<MemberOutDTO> list = memberServiceV2.findNamedQuery1(username);
+//        model.addAttribute("list",list);
+//        model.addAttribute("cnt", list.size());
+//        return "member2/memberList";
+//    }
 
     @GetMapping("RepositoryPage1")
     public String getMemberWithPaging1(Model model){

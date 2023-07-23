@@ -15,14 +15,14 @@ public class MemberRepositoryV1 {
     private final EntityManager em;
 
     // 생성 쿼리
-    public Long save(Member member){
-        if(member.getId() == null){
-            em.persist(member);
-        }else {
-            em.merge(member);
-        }
-        return member.getId();
-    }
+//    public Long save(Member member){
+//        if(member.getId() == null){
+//            em.persist(member);
+//        }else {
+//            em.merge(member);
+//        }
+//        return member.getId();
+//    }
 
     // 단건 조회
     public Member find(Long id){
@@ -35,10 +35,10 @@ public class MemberRepositoryV1 {
     }
 
     // 삭제
-    public Long delete(Member member){
-        em.remove(member);
-        return member.getId();
-    }
+//    public Long delete(Member member){
+//        em.remove(member);
+//        return member.getId();
+//    }
 
     // 단건 조회
     public Optional<Member> findById(Long id){
