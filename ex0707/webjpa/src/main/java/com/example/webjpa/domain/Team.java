@@ -25,8 +25,9 @@ public class Team extends BaseEntity{
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
 
-    public Team(String teamname) {
+    public Team(String teamname, Member member) {
         this.teamname = teamname;
+        member.setTeam(this);
     }
 
     @PostLoad

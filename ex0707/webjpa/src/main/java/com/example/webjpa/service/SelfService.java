@@ -18,7 +18,7 @@ public class SelfService {
     @Transactional
     public void saveMember(String username, Integer age, String teamName){
         Member member = new Member(username, age);
-        Team team1 = new Team(teamName);
+        Team team1 = new Team(teamName, member);
         selfMemberRepository.save(member);
         selfTeamRepository.save(team1);
     }

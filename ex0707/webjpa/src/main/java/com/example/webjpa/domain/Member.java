@@ -35,9 +35,10 @@ public class Member extends BaseEntity{
     public Member(String username, Integer age, Team team) {
         this.username = username;
         this.age = age;
-        if(team != null){
-            changeTeam(team);
-        }
+        this.team = team;
+//        if(team != null){
+//            changeTeam(team);
+//        }
     }
     public void changeTeam(Team team){
         this.team = team;
