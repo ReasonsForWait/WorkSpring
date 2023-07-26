@@ -2,11 +2,16 @@ package com.example.sessionscope.controller;
 
 import com.example.sessionscope.dto.SampleDTO1;
 import com.example.sessionscope.dto.UserDTO;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 @Controller
 @SessionAttributes({"dto1Session"})
@@ -119,4 +124,67 @@ public class TestController {
         model.addAttribute("user", user);
         return "/islogin";
     }
+
+    // 백앤드에서 쿠키 저장
+    @GetMapping("/save-cookie")
+    public String saveCookie(HttpServletResponse response){
+
+        try{
+            // utf-8 방식으로 인코딩 된 쿠키 값 생성
+            String data1 = URLEncoder.encode("문자열1", "UTF-8");
+            String data2 = URLEncoder.encode("문자열2", "UTF-8");
+
+            // 인코딩된 해당 데이터를 Cookie 객체에 넣기
+            Cookie cookie1 = new Cookie("cookie1", data1);
+            Cookie cookie2 = new Cookie("cookie2", data2);
+
+            // 쿠키가 생존할 수 있는 기간을 설정(초)
+            cookie1.setMaxAge(365*24*60*60);
+            cookie2.setMaxAge(365*24*60*60);
+
+            // 해당 쿠키 객체를 response로 클라이언트에 전송
+            response.addCookie(cookie1);
+            response.addCookie(cookie2);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/load-cookie")
+//    public String loadCookie(HttpServletRequest request){
+//
+//        try {
+//            // request에서 쿠키 가져오기
+//            Cookie[] cookies = request.getCookies();
+//            // 쿠키 배열을 순회
+//            for (Cookie cookie: cookies) {
+//                // 쿠키의 값을 UTF-8 로 디코딩
+//                String str = URLDecoder.decode(cookie.getValue(), "UTF-8");
+//                // 이름이 일치할 경우 sysout으로 출력
+//                if(cookie.getName().equals("cookie1")){
+//                    System.out.println("cookie1 : "+str);
+//                }else if(cookie.getName().equals("cookie2")){
+//                    System.out.println("cookie2 : "+str);
+//                }else{
+//                    System.out.println("이 쿠키는 설정한 쿠키가 아닙니다.");
+//                }
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//
+//        return "redirect:/";
+//    }
+    public String loadCookie(@CookieValue("cookie1") String cookie1,
+                             @CookieValue("cookie2") String cookie2){
+        System.out.println("cookie1 : "+cookie1);
+        System.out.println("cookie2 : "+cookie2);
+
+        return "redirect:/";
+    }
 }
+
+
+
