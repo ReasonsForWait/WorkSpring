@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>취약한 웹 예제1</h1>
+    <ul>
+       <li><a href="/weak/form">패턴 처리된 폼 태그 페이지 이동</a></li>
+    </ul>
+    <hr>
+    <h1>vaild 예제1 - @RequestParam</h1>
+    <form action="/valid1/req1" method="post">
+        text1 : <input type="text" pattern="[A-Za-z]{3,10}" name="text1" id="text1"><br>
+        text2 : <input type="text" pattern="[0-9]{1,5}" name="text2" id="text2"><br>
+        <button>전송</button>
+    </form>
+    <hr>
+    <h1>vaild 예제2 - @PathVariable</h1>
+    <p><a href="/valid1/req2/abcdefgh">PathVariable 유효성 검사</a></p>
+    <hr>
+    <h1>vaild 예제3 - @ModelAttribute</h1>
+    <form action="/valid1/req3" method="post">
+        text1 : <input type="text" pattern="[A-Za-z]{3,10}" name="text3" id="text3"><br>
+        text2 : <input type="text" pattern="[0-9]{1,5}" name="text4" id="text4"><br>
+        <button>전송</button>
+    </form>
+    <hr>
+    <h1>vaild 예제4 - 비동기 @ModelAttribute</h1>
+    <form action="/valid1/req4" method="post">
+        text1 : <input type="text" pattern="[A-Za-z]{3,10}" name="text3" id="text5"><br>
+        text2 : <input type="text" pattern="[0-9]{1,5}" name="text4" id="text6"><br>
+        <button id="btn4">전송</button>
+    </form>
+    <script>
+        document.getElementById("btn4").addEventListener("click",function(e){
+            e.preventDefault();
+            let text3 = text5.value;
+            let text4 = text6.value;
+
+            fetch("http://localhost:8080/valid1/req4", {
+                method : "post",
+                headers : {
+                    "Content-Type":"application/json",
+                },
+                body : JSON.stringify({
+                    text3,
+                    text4
+                })
+            }).then(response => {console.log(response)});
+        })
+    </script>
+    <hr>
+    <h1>message 예제1 - 메시지 호출</h1>
+    <p><a href="/message/output1">메시지 호출</a></p>
+</body>
+</html>

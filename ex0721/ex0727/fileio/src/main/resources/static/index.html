@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>파일 전송</h1>
+    <hr>
+    <h1>비동기 방식으로 파일 전송처리</h1>
+    <div>
+        <input type="file" name="mediafile" id="mediafile" multiple>
+    </div>
+    <button id="btn1">전송</button>
+    <script>
+        document.getElementById("btn1").addEventListener("click", function(){
+           // form과 관련된 데이터 처리를 하는 객체를 호출
+           const formData = new FormData();
+           // input file 태그를 받아오기
+           const inputFiles = document.getElementById("mediafile");
+           // 파일 정보를 가지고있는 객체를 반환
+           let files = inputFiles.files;
+
+           // console.log(files);
+
+           // 입력된 파일들을 전송할 formData에 붙이기
+           for(const file of files){
+                formData.append("uploadFiles", file);
+           }
+
+           // 파일을 전송하는 로직
+           fetch("/upload1", {
+                method : "POST",
+                body : formData})
+                .then(response => console.log(response))
+                .catch(error => console.log(error));
+        });
+    </script>
+</body>
+</html>
