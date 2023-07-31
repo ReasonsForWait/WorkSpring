@@ -36,5 +36,38 @@
                 .catch(error => console.log(error));
         });
     </script>
+    <hr>
+    <h1>파일 다운로드1</h1>
+    <a href="/download1">파일 다운로드1</a>
+    <hr>
+    <h1>파일 다운로드2</h1>
+    <a href="#" id="download2">파일 다운로드2</a>
+    <div id="img1">
+
+    </div>
+    <script>
+        document.getElementById("download2").addEventListener("click", function(e){
+            // 이벤트 강제 막기
+            e.preventDefault();
+            fetch("/download1", {
+                method : "GET",
+                headers : {}
+            }).then(response => {
+                response.arrayBuffer().then(function(buffer){
+                    // 임시 url 링크 생성
+                    const url = window.URL.createObjectURL(new Blob([buffer]));
+                    // 이미지 태그 생성
+                    const img = document.createElement("img");
+                    // 이미지 태그 src에 생성된 url 주소를 삽입
+                    img.setAttribute("src", url);
+                    // img1 div에 이미지 태그 삽입
+                    img1.appendChild(img);
+                });
+            });
+        });
+    </script>
+    <hr>
+    <h1>파일 다운로드3</h1>
+    <img src="/download3/yj.jpg">
 </body>
 </html>
